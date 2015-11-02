@@ -1,0 +1,49 @@
+Mon 19:49: ########################################## 
+Mon 19:49: Compiling.
+Mon 19:49: ########################################## 
+
+Mon 19:49: MaxCompiler version: 2015.1.1.
+Mon 19:49: Build Simulation run rule for PPMTools start time: Mon Nov 02 19:49:40 CST 2015.
+Mon 19:49: Project location: /home/rice/workspace/fpga-workspace/PPMTools.
+Mon 19:49: Detailed build log: /home/rice/workspace/fpga-workspace/PPMTools/RunRules/Simulation/build.log.
+
+Mon 19:49: Compiling Engine Code.
+Mon 19:49: Engine building skipped (no changes on .max files).
+Mon 19:49: Compiling CPU Code.
+Mon 19:49: Run CPU project make files updating
+Mon 19:49: Executing command:
+Mon 19:49: java -jar /opt/maxcompiler-2015.1.1/lib/MaxIDE/projectAdmin.jar -u /home/rice/workspace/fpga-workspace/PPMTools Simulation 
+Mon 19:49: Command output:
+
+Mon 19:49: MaxCompiler Project Admin Tool Version 2015.1.10001
+Mon 19:49:  Copyright Maxeler Technologies 2010 - 2015. All rights reserved.
+Mon 19:49: Handler version 2
+Mon 19:49: Updating RunRule dependent Makefiles for RunRule 'Simulation'
+Mon 19:49: 	Updating: Simulation
+Mon 19:49: Found makefiles: 1
+Mon 19:49: 	Updated: Simulation
+Mon 19:49: Run CPU make.
+Mon 19:49: make RUNRULE=Simulation 
+Mon 19:49: Command output:
+Mon 19:49: make -f Makefile.rules build
+Mon 19:49: make[1]: Entering directory `/home/rice/workspace/fpga-workspace/PPMTools/CPUCode'
+Mon 19:49: set -e; rm -f ../RunRules/Simulation/objects/c/ImageCpuCode.d ;                                                             \
+Mon 19:49: 	  cc -M -std=gnu99 -g -O3 -Wall -Wextra -I../RunRules/Simulation/include  -I '/opt/maxcompiler-2015.1.1/include/slic'  -Wno-error ImageCpuCode.c > ../RunRules/Simulation/objects/c/ImageCpuCode.d.$$ ;                                 \
+Mon 19:49:       sed 's,\(ImageCpuCode\)\.o[ :]*,../RunRules/Simulation/objects/c/\1.o ../RunRules/Simulation/objects/c/ImageCpuCode.d : ,g' < ../RunRules/Simulation/objects/c/ImageCpuCode.d.$$ > ../RunRules/Simulation/objects/c/ImageCpuCode.d; \
+Mon 19:49:       rm -f ../RunRules/Simulation/objects/c/ImageCpuCode.d.$$
+Mon 19:49: make[1]: Leaving directory `/home/rice/workspace/fpga-workspace/PPMTools/CPUCode'
+Mon 19:49: make[1]: Entering directory `/home/rice/workspace/fpga-workspace/PPMTools/CPUCode'
+Mon 19:49: cc -std=gnu99 -g -O3 -Wall -Wextra -I../RunRules/Simulation/include  -I '/opt/maxcompiler-2015.1.1/include/slic'  -c ImageCpuCode.c -o ../RunRules/Simulation/objects/c/ImageCpuCode.o
+Mon 19:49: cc -std=gnu99 -g -O3 -Wall -Wextra -I../RunRules/Simulation/include  -I '/opt/maxcompiler-2015.1.1/include/slic'  -o ../RunRules/Simulation/binaries/Image ../RunRules/Simulation/objects/maxfiles/slic_Image.o ../RunRules/Simulation/objects/c/ImageCpuCode.o -g -O3  -L '/opt/maxcompiler-2015.1.1/lib' -lslic -L '/opt/maxcompiler-2015.1.1/lib/maxeleros-sim/lib' -lmaxeleros -lpthread -lm -lrt 
+Mon 19:49: make[1]: Leaving directory `/home/rice/workspace/fpga-workspace/PPMTools/CPUCode'
+Mon 19:49: Build completed: Mon Nov 02 19:49:41 CST 2015
+
+
+Mon 19:49: ########################################## 
+Mon 19:49: Running
+Mon 19:49: ########################################## 
+Mon 19:49: Executing command:
+Mon 19:49: '/home/rice/workspace/fpga-workspace/PPMTools/RunRules/Simulation/binaries/Image' 
+Mon 19:49: Command output:
+Mon 19:49: image width = 256, height = 256
+Mon 19:49: Process terminated with exit code 0.

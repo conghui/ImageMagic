@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager version="2">
+<enginePart internalEngineSubproject="ImageMagic_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/ImageMagic_EngineCode/bin" projectName="ImageMagic"/>
+<cpuPart internalCpuSubproject="ImageMagic_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>

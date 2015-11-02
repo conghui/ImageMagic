@@ -1,0 +1,49 @@
+package image;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.managers.BuildConfig;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.EngineInterface;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.InterfaceParam;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager;
+import com.maxeler.maxcompiler.v2.managers.standard.Manager.IOType;
+
+public class ImageManager {
+
+	private static final String s_kernelName = "ImageKernel";
+
+	public static void main(String[] args) {
+		ImageEngineParameters params = new ImageEngineParameters(args);
+		Manager manager = new Manager(params);
+		Kernel  kernel  = new ImageKernel(manager.makeKernelParameters(s_kernelName));
+		manager.setKernel(kernel);
+		manager.setIO(IOType.ALL_CPU);
+
+		manager.createSLiCinterface(interfaceDefault());
+
+		configBuild(manager, params);
+
+		manager.build();
+	}
+
+	private static EngineInterface interfaceDefault() {
+		EngineInterface engine_interface = new EngineInterface();
+		CPUTypes   type = CPUTypes.UINT32;
+		int        size = type.sizeInBytes();
+		InterfaceParam  N    = engine_interface.addParam("N", CPUTypes.INT);
+		engine_interface.setTicks(s_kernelName, N);
+
+		engine_interface.setStream("x", type, N * size);
+		engine_interface.setStream("y", type, N * size);
+
+		return engine_interface;
+	}
+
+	private static void configBuild(Manager manager, ImageEngineParameters params) {
+		manager.setEnableStreamStatusBlocks(false);
+		BuildConfig buildConfig = manager.getBuildConfig();
+		buildConfig.setMPPRCostTableSearchRange(params.getMPPRStartCT(), params.getMPPREndCT());
+		buildConfig.setMPPRParallelism(params.getMPPRThreads());
+		buildConfig.setMPPRRetryNearMissesThreshold(params.getMPPRRetryThreshold());
+	}
+}
